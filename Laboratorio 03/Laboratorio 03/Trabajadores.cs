@@ -13,7 +13,7 @@ namespace Laboratorio_03
         public int Sueldo;
         public int Hora_de_Trabajo = 45;
         //Constructor
-        public Trabajadores(string rut, string nombre, string apellido, string fecha_de_Nacimiento, string nacionalidad, string puesto, int sueldo)
+        public Trabajadores(string rut, string nombre, string apellido, string fecha_de_Nacimiento, string nacionalidad, string puesto)
         {
             Rut = rut;
             Nombre = nombre;
@@ -21,7 +21,20 @@ namespace Laboratorio_03
             Fecha_de_Nacimiento = fecha_de_Nacimiento;
             Nacionalidad = nacionalidad;
             Puesto = puesto;
-            Sueldo = sueldo;
+        }
+        public void Determinacion_Sueldo(string puesto)
+        {
+            if (puesto =="Vendedor")
+            { Sueldo = 450000; }
+            else if (puesto=="Auxiliar")
+            { Sueldo = 385000; }
+            else if (puesto=="Supervisor")
+            { Sueldo = 750000; }
+        }
+        public void Cambio_de_Puesto(Trabajadores trabajador,string puesto)
+        {
+            trabajador.Puesto = puesto;
+            trabajador.Determinacion_Sueldo(trabajador.Puesto);
         }
     }
 }

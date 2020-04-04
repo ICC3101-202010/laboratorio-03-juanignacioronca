@@ -21,6 +21,17 @@ namespace Laboratorio_03
             Nacionalidad = nacionalidad;
             this.Saldo_Disponible = rnd.Next(300000, 1000000);
         }
-
+        public void Comprar(Clientes clientes,int cant, Productos producto)
+        {
+            if (cant*producto.Precio<=clientes.Saldo_Disponible)
+            {
+                producto.Comprar(producto, cant);
+                Console.WriteLine("Compra valida");
+            }
+            else
+            {
+                Console.WriteLine("Compra invalida, saldo no disponible");
+            }
+        }
     }
 }
