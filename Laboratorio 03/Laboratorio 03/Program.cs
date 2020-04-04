@@ -16,6 +16,7 @@ namespace Laboratorio_03
             List<Clientes> Lista_Clientes = new List<Clientes>();
             List<Trabajadores> Lista_Trabajadores = new List<Trabajadores>();
             List<Productos> Lista_Productos = new List<Productos>();
+            List<Registro> Lista_Registro = new List<Registro>();
 
             //Creacion clientes:
             Clientes cliente_1 = new Clientes("123456789", "Agustin", "Gonzalez", "02-11-1960", "Chilena");
@@ -116,12 +117,138 @@ namespace Laboratorio_03
             Lista_Productos.Add(producto_19);
             Lista_Productos.Add(producto_20);
 
-            Console.WriteLine("INICIO SIMULACION:");
-            int i = rnd.Next(1, 10);
-            Console.WriteLine(Lista_Clientes[i].Nombre+" "+ Lista_Clientes[i].Apellido + " " + Lista_Clientes[i].Saldo_Disponible);
+            int aux_1 = -1;
+            while (aux_1!=0)
+            {
+                Console.WriteLine("Menu\n1.Simular compra manual:\n2.Simular compra automatica:\n3.Ver registro:\n0.Salir");
+                aux_1 =Convert.ToInt32(Console.ReadLine());
+                if (aux_1 == 1)
+                {
+                    int aux_2 =-1;
+                    while (aux_2!=0)
+                    {
+                        Console.WriteLine("Primero selecione un cliente o '0' para volver atras:");
+                        int aux_3 = 1;  
+                        foreach (var item in Lista_Clientes)
+                        {
+                            Console.WriteLine(aux_3+"."+item.Nombre+" "+item.Apellido);
+                            aux_3 += 1;
+                        }
+                        aux_2 = Convert.ToInt32(Console.ReadLine());
+                        if (aux_2 == 0)
+                        {
+                            continue;
+                        }
+                        else if (aux_2<0 | aux_2>10)
+                        {
+                            Console.WriteLine("Numero invalido, intente nuevamente");
+                            continue;
+                        }
+                        else 
+                        {
+                            int aux_4 = -1;
+                            while (aux_4!=0)
+                            {
+                                Console.WriteLine("Cliente selecionado: " + Lista_Clientes[aux_2-1].Nombre + " " + Lista_Clientes[aux_2-1].Apellido);
+                                Console.WriteLine("Ahora selecione un vendedor o '0' para volver atras:");
+                                int aux_5 = 1;
+                                foreach (var item in Lista_Trabajadores)
+                                { 
+                                    if (item.Puesto=="Vendedor")
+                                    {
+                                        Console.WriteLine(aux_5 + ". Caja de " + item.Nombre + " " + item.Apellido);
+                                        aux_5 += 1;
+                                    }
+                                    else
+                                    {
+                                        aux_5 += 1;
+                                    }
+                                }
+                                aux_4=Convert.ToInt32(Console.ReadLine());
+                                if (aux_4 == 0)
+                                {
+                                    continue;
+                                }
+                                else if (aux_4 < 0 | aux_4 > 9)
+                                {
+                                    Console.WriteLine("Numero invalido, intente nuevamente");
+                                    continue;
+                                }
+                                else
+                                {
+                                    if (Lista_Trabajadores[aux_4 - 1].Puesto == "Vendedor")
+                                    {
+                                        int aux_6 = -1;
+                                        while (aux_6!=0)
+                                        {
+                                            Console.WriteLine("Caja selecionada: " + Lista_Trabajadores[aux_4-1].Nombre+" "+ Lista_Trabajadores[aux_4 - 1].Apellido);
+                                            Console.WriteLine("Ahora selecione un producto o '0' para volver atras:");
+                                            int aux_7 = 1;
+                                            foreach (var item in Lista_Productos)
+                                            {
+                                                Console.WriteLine(aux_7 + "." + item.Nombre + " " + item.Marca);
+                                                aux_7 += 1;
+                                            }
+                                            aux_6 = Convert.ToInt32(Console.ReadLine());
+                                            if (aux_6 == 0)
+                                            {
+                                                continue;
+                                            }
+                                            else if (aux_6 < 0 | aux_6 > 20)
+                                            {
+                                                Console.WriteLine("Numero invalido, intente nuevamente");
+                                                continue;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Quedan del producto " + Lista_Productos[aux_6 - 1].Nombre + " " + Lista_Productos[aux_6 - 1].Marca + ": " + Lista_Productos[aux_6 - 1].Stock + " en stock.");
+                                                Console.WriteLine("Cuantos desea comprar:");
+                                                int aux_8 = Convert.ToInt32(Console.ReadLine());
+                                                int aux_9 = Lista_Registro.Count;
+                                                Console.WriteLine(aux_9);
+                                                if (Lista_Clientes[aux_2 - 1].Comprar(Lista_Clientes[aux_2 - 1], aux_8, Lista_Productos[aux_6 - 1]) ==1)
+                                                {
+                                                    Lista_Registro.Add(new Registro(Lista_Clientes[aux_2 - 1].Nombre, Lista_Clientes[aux_2 - 1].Apellido,
+                                                        Lista_Trabajadores[aux_4 - 1].Nombre, Lista_Trabajadores[aux_4 - 1].Apellido,
+                                                        Lista_Productos[aux_6 - 1].Nombre, Lista_Productos[aux_6 - 1].Marca,
+                                                        aux_8, Lista_Productos[aux_6 - 1].Precio * aux_8));
+                                                }
+                                                else
+                                                {
+                                                    continue;
+                                                }
+                                                
+                                                
+                                                aux_2 = 0;
+                                                aux_4 = 0;
+                                                aux_6 = 0;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {Console.WriteLine("Numero invalido, intente nuevamente");
+                                        continue;}
+                                }
+                            }
+                        }
+                    }
+                }
 
-            
-            Console.ReadLine();
+                else if (aux_1==3)
+                {
+                    int aux_11 = 1;
+                    foreach (var item in Lista_Registro)
+                    {
+                        Console.WriteLine("\nREGISTRO NUMERO "+aux_11+":");
+                        Console.WriteLine(item.Informacion(item));
+                        aux_11 += 1;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Opcion invalida, intente nuevamente");
+                }
+            }
         }
     }
 }
