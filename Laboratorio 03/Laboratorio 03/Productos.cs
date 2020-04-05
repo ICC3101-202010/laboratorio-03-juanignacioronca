@@ -27,5 +27,10 @@ namespace Laboratorio_03
         {
             producto.Stock -= cant;
         }
+
+        public string Informacion_Stock(Productos productos)
+        {
+            return productos.Nombre + " " + productos.Marca + " Stock disponible : " + productos.Stock;
+        }
     }
 }

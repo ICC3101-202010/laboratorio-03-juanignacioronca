@@ -20,7 +20,7 @@ namespace Laboratorio_03
         public DateTime DateTime;
 
         public Registro(string nombre_Cliente, string apellido_Cliente, string nombre_Vendedor,
-        string apellido_Vendedor, string nombre_Producto, string marca_Producto, int cantidad_Producto, int precio_Compra)
+        string apellido_Vendedor, string nombre_Producto, string marca_Producto, int cantidad_Producto, int precio_Compra,DateTime dateTime)
         {
             Nombre_Cliente = nombre_Cliente;
             Apellido_Cliente = apellido_Cliente;
@@ -30,6 +30,7 @@ namespace Laboratorio_03
             Marca_Producto = marca_Producto;
             Cantidad_Producto = cantidad_Producto;
             Precio_Compra = precio_Compra;
+            DateTime = dateTime;
         }
         //Metodos
         public string Informacion(Registro registro)
