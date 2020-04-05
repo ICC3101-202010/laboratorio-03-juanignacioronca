@@ -9,15 +9,15 @@ namespace Laboratorio_03
     class Registro
     {
         //Atributos
-        public string Nombre_Cliente;
-        public string Apellido_Cliente;
-        public string Nombre_Vendedor;
-        public string Apellido_Vendedor;
-        public string Nombre_Producto;
-        public string Marca_Producto;
-        public int Cantidad_Producto;
-        public int Precio_Compra;
-        public DateTime DateTime;
+        private string Nombre_Cliente;
+        private string Apellido_Cliente;
+        private string Nombre_Vendedor;
+        private string Apellido_Vendedor;
+        private string Nombre_Producto;
+        private string Marca_Producto;
+        private int Cantidad_Producto;
+        private int Precio_Compra;
+        private DateTime DateTime;
 
         public Registro(string nombre_Cliente, string apellido_Cliente, string nombre_Vendedor,
         string apellido_Vendedor, string nombre_Producto, string marca_Producto, int cantidad_Producto, int precio_Compra,DateTime dateTime)

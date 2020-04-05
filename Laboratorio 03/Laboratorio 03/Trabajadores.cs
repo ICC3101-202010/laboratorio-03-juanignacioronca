@@ -35,6 +35,7 @@ namespace Laboratorio_03
         {
             trabajador.Puesto = puesto;
             trabajador.Determinacion_Sueldo(trabajador.Puesto);
+            Console.WriteLine("Cambio realizado con exito.");
         }
     }
 }

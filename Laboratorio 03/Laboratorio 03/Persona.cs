@@ -8,7 +8,7 @@ namespace Laboratorio_03
 {
     public class Persona
     {
-        public string Rut;
+        protected string Rut;
         public string Nombre;
         public string Apellido;
         public string Fecha_de_Nacimiento;

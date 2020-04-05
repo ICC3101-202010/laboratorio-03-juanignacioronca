@@ -396,7 +396,7 @@ namespace Laboratorio_03
                             {
                                 Console.WriteLine("Nombre: " + Lista_Trabajadores[aux_14 - 1].Nombre + " " + Lista_Trabajadores[aux_14 - 1].Apellido + ". Puesto:  " + Lista_Trabajadores[aux_14 - 1].Puesto);
                                 Console.WriteLine("Selecione a que puesto desea cambiar al trabajador o '0' para volver atras: \n1.Vendedor\n2.Auxiliar\n3.Supervisor");
-                                int aux_15 = Convert.ToInt32(Console.ReadLine());
+                                aux_15 = Convert.ToInt32(Console.ReadLine());
                                 if (aux_15 ==0)
                                 {
                                     continue;

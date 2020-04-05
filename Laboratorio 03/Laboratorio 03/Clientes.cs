@@ -9,8 +9,8 @@ namespace Laboratorio_03
     class Clientes : Persona
     {
         //Atributos
-        public Random rnd = new Random();
-        public int Saldo_Disponible;
+        private Random rnd = new Random();
+        private int Saldo_Disponible;
         //Constructos
         public Clientes(string rut, string nombre, string apellido, string fecha_de_Nacimiento, string nacionalidad)
         {
