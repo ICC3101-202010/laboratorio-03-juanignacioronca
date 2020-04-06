@@ -19,7 +19,7 @@ namespace Laboratorio_03
             Apellido = apellido;
             Fecha_de_Nacimiento = fecha_de_Nacimiento;
             Nacionalidad = nacionalidad;
-            this.Saldo_Disponible = rnd.Next(300000, 1000000);
+            this.Saldo_Disponible = rnd.Next(3000000, 10000000);
         }
         public int Comprar(Clientes clientes,int cant, Productos producto)
         {

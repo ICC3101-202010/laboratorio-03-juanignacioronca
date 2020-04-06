@@ -39,7 +39,7 @@ namespace Laboratorio_03
             Lista_Clientes.Add(cliente_6);
             Lista_Clientes.Add(cliente_7);
             Lista_Clientes.Add(cliente_8);
-            Lista_Clientes.Add(cliente_8);
+            Lista_Clientes.Add(cliente_9);
             Lista_Clientes.Add(cliente_10);
 
             //Creacion trabajadores:
@@ -402,11 +402,11 @@ namespace Laboratorio_03
                                     continue;
                                 }
                                 else if (aux_15 == 1)
-                                { Lista_Trabajadores[aux_14 - 1].Cambio_de_Puesto(Lista_Trabajadores[aux_14 - 1],"Vendedor"); }
+                                { Lista_Trabajadores[aux_14 - 1].Cambio_de_Puesto(Lista_Trabajadores[aux_14 - 1],"Vendedor"); aux_15 = 0; }
                                 else if (aux_15 == 2)
-                                { Lista_Trabajadores[aux_14 - 1].Cambio_de_Puesto(Lista_Trabajadores[aux_14 - 1], "Auxiliar"); }
+                                { Lista_Trabajadores[aux_14 - 1].Cambio_de_Puesto(Lista_Trabajadores[aux_14 - 1], "Auxiliar"); aux_15 = 0; }
                                 else if (aux_15 == 3)
-                                { Lista_Trabajadores[aux_14 - 1].Cambio_de_Puesto(Lista_Trabajadores[aux_14 - 1], "Supervisor"); }
+                                { Lista_Trabajadores[aux_14 - 1].Cambio_de_Puesto(Lista_Trabajadores[aux_14 - 1], "Supervisor"); aux_15 = 0; }
                                 else
                                 {
                                     Console.WriteLine("Numero incorrecto, intente nuevamente");
